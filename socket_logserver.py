@@ -39,7 +39,7 @@ class ReceiveProtocol(Protocol):
         
     def connectionMade(self):
         logger = logging.getLogger('log_server')
-        logger.info('[makeConnection]与logger_client建立socket连接。')
+        logger.info(u'[makeConnection]与logger_client建立socket连接。')
         
     
     def dataReceived(self, data):
@@ -59,7 +59,7 @@ class ReceiveProtocol(Protocol):
                 self.buf += data
                 
         except BaseException, e:
-            logger.error('处理短信记录失败' + str(e) + '\n' + traceback.format_exc())
+            logger.error(u'处理日志记录失败' + str(e) + '\n' + traceback.format_exc())
             
     def solve(self, data):
         logger = logging.getLogger('log_server')
@@ -77,7 +77,7 @@ class ReceiveProtocol(Protocol):
         
     def connectionLost(self, reason):
         logger = logging.getLogger('log_server')
-        logger.info('[connectionLost]与logger_client的socket连接关闭。')
+        logger.info(u'[connectionLost]与logger_client的socket连接关闭。')
     
     
     # 记录日志
